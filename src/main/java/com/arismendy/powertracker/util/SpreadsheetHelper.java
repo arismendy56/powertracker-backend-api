@@ -38,14 +38,14 @@ public class SpreadsheetHelper {
                     // Process the cell based on its type
                     switch (cell.getCellType()) {
                         case NUMERIC:
-                            System.out.print(cell.getNumericCellValue() + "\t");
+                            System.out.println(cell.getNumericCellValue() + "\t");
                             break;
                         case STRING:
-                            System.out.print(cell.getStringCellValue() + "\t");
+                            System.out.println(cell.getStringCellValue() + "\t");
                             break;
                         // Add cases for other cell types like BOOLEAN, FORMULA, etc.
                         default:
-                            System.out.print("\t");
+                            System.out.println("\t");
                     }
                 }
                 System.out.println(); // New line for each row
