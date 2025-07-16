@@ -1,71 +1,33 @@
-# Compiled class files
-*.class
-
-# Package Files
-*.jar
-*.war
-*.ear
-
-# Log files
-*.log
-logs/
-target/*.log
-
-# Maven
+HELP.md
 target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 
-# Gradle
-.gradle/
-build/
-out/
-
-# IntelliJ IDEA
-.idea/
-*.iml
-*.iws
-*.ipr
-.vscode/
-
-# Eclipse
-.project
+### STS ###
+.apt_generated
 .classpath
-.settings/
-bin/
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-# NetBeans
-nbproject/private/
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
 build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-# OS-specific files
-.DS_Store
-Thumbs.db
-Desktop.ini
-
-# Sensitive information (e.g., configuration files with credentials)
-application*.properties
-application*.yml
-!application-dev.properties # Example: allow dev-specific config
-!application-dev.yml # Example: allow dev-specific config
-
-# Environment variables
-.env
-.env.*
-
-# Database files (if local, embedded databases are used)
-*.mv.db
-*.trace.db
-
-# Any other generated files or directories
-tmp/
+### VS Code ###
+.vscode/
