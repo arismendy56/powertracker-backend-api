@@ -1,0 +1,7 @@
+In order to run the application locally, you can copy the below text and paste into .env file in the root of the project.
+
+# Local run arguments for the application
+Keep in mind that these values are for local development and should not be used in production.
+DB_USERNAME=
+DB_PASSWORD=
+SPRING_PROFILES_ACTIVE=local

@@ -6,9 +6,11 @@ import com.arismendy.powertracker.entities.TrainingBlock;
 import com.arismendy.powertracker.mapper.TrainingBlockMapper;
 import com.arismendy.powertracker.service.TrainingBlockService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -23,10 +25,16 @@ public class TrainingBlockController {
     }
 
     @GetMapping
-    public ResponseEntity<?> getTrainingBlocks() {
-        return ResponseEntity.of(
-                Optional.ofNullable(trainingBlockService.getAllTrainingBlocks(
-                )));
+    public ResponseEntity<ApiResponse<List<TrainingBlockDto>>>getTrainingBlocks() {
+        List<TrainingBlock> trainingBlocks = trainingBlockService.getAllTrainingBlocks();
+        if(trainingBlocks.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        List<TrainingBlockDto> trainingBlockDtos = trainingBlocks.stream()
+                .map(trainingBlockMapper::toDto)
+                .toList();
+        ApiResponse<List<TrainingBlockDto>> apiResponse = new ApiResponse<>(200, trainingBlockDtos, "Training blocks retrieved successfully");
+        return ResponseEntity.ok(apiResponse);
     }
 
     @PostMapping
