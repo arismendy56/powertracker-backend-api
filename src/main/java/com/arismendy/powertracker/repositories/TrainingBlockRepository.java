@@ -9,6 +9,4 @@ import java.util.UUID;
 @Repository
 public interface TrainingBlockRepository extends JpaRepository<TrainingBlock, UUID> {
 
-    // This interface will automatically provide CRUD operations for TrainingBlock entities.
-    // Additional custom query methods can be defined here if needed.
 }
