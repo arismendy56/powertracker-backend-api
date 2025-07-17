@@ -22,7 +22,7 @@ public class TrainingDay {
     private UUID id;
 
     @Column(name = "day_number", nullable = false)
-    private int dayNumber; // 1=Monday, etc. Not neccessarily Day 1 Day 2 just means the day of the week in the training week
+    private int dayNumber; // 1=Monday, etc. Not necessarily Day 1 Day 2 just means the day of the week in the training week
 
     @Column(name = "date", nullable = false)
     private LocalDate date;
