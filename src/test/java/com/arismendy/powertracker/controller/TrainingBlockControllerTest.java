@@ -34,6 +34,7 @@ class TrainingBlockControllerTest {
     private MockMvc mockMvc;
 
     static final TrainingBlockDto TEST_DTO = new TrainingBlockDto(UUID.randomUUID(), "Test Block", null, null, "Test notes", 1L, null, null, Collections.emptyList());
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
