@@ -10,11 +10,27 @@ public class TrainingDayMapperImpl implements TrainingDayMapper {
 
     @Override
     public TrainingDay fromDto(TrainingDayDto trainingDayDto) {
-        return null;
+        return new TrainingDay(
+                trainingDayDto.id(),
+                trainingDayDto.dayNumber(),
+                trainingDayDto.date(),
+                null,
+                trainingDayDto.createdAt(),
+                trainingDayDto.updatedAt(),
+               null
+        );
     }
 
     @Override
     public TrainingDayDto toDto(TrainingDay trainingDay) {
-        return null;
+        return new TrainingDayDto(
+                trainingDay.getId(),
+                trainingDay.getDayNumber(),
+                trainingDay.getDate(),
+                trainingDay.getWeek() != null ? trainingDay.getWeek().getId() : null,
+                trainingDay.getCreatedAt(),
+                trainingDay.getUpdatedAt(),
+                trainingDay.getExercises()
+        );
     }
 }
