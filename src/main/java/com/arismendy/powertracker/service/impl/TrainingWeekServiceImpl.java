@@ -32,10 +32,19 @@ public class TrainingWeekServiceImpl implements TrainingWeekService {
         if(trainingWeek.getId() != null) {
             throw new IllegalArgumentException("Training week already has an ID!");
         }
+        LocalDateTime now = LocalDateTime.now();
         return trainingBlockRepository.findById(trainingBlockId)
                 .map(trainingBlock -> {
                     trainingWeek.setTrainingBlock(trainingBlock);
-                    return trainingWeekRepository.save(trainingWeek);
+
+                    return trainingWeekRepository.save(new TrainingWeek(
+                            null,
+                            trainingWeek.getTrainingBlock(),
+                            trainingWeek.getWeekNumber(),
+                            now,
+                            now,
+                            null
+                    ));
                 })
                 .orElseThrow(() -> new IllegalArgumentException("Training block not found with id: " + trainingBlockId));
     }

@@ -38,4 +38,5 @@ public class TrainingDay {
 
     @OneToMany(mappedBy = "day", cascade = CascadeType.ALL)
     private List<ExerciseEntry> exercises;
+
 }
