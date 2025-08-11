@@ -36,7 +36,7 @@ public class TrainingDay {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "day", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "trainingDay", cascade = CascadeType.ALL)
     private List<ExerciseEntry> exercises;
 
 }

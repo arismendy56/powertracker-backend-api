@@ -26,7 +26,7 @@ public class ExerciseEntry {
     private int sets;
 
     @Column(name = "exercise_reps", nullable = false)
-    private int reps;
+    private String reps;
 
     @Column(name = "exercise_weight", nullable = false)
     private double weight;
@@ -38,8 +38,8 @@ public class ExerciseEntry {
     private String notes;
 
     @ManyToOne
-    @JoinColumn(name = "day_id")
-    private TrainingDay day;
+    @JoinColumn(name = "training_day_id")
+    private TrainingDay trainingDay;
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;

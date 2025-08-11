@@ -7,8 +7,10 @@ public record ExerciseEntryDto(
         UUID id,
         String exerciseName,
         int sets,
-        int reps,
+        String reps,
         double weight,
+        double lastSetRpe,
+        String notes,
         UUID dayId,
         LocalDateTime createdAt,
         LocalDateTime updatedAt

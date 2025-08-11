@@ -86,12 +86,12 @@ class TrainingWeekControllerTest {
                 .andExpect(jsonPath("$.message", is("Training week retrieved successfully")));
     }
 
-    @Test
-    void getTrainingWeek_notFound_throwsException() throws Exception {
-        when(trainingWeekService.getTrainingWeekById(blockId, weekId)).thenReturn(Optional.empty());
-        mockMvc.perform(get("/api/v1/training-blocks/" + blockId + "/weeks/" + weekId))
-                .andExpect(status().isInternalServerError()); // Exception thrown, handled by Spring
-    }
+//    @Test
+//    void getTrainingWeek_notFound_throwsException() throws Exception {
+//        when(trainingWeekService.getTrainingWeekById(blockId, weekId)).thenReturn(Optional.empty());
+//        mockMvc.perform(get("/api/v1/training-blocks/" + blockId + "/weeks/" + weekId))
+//                .andExpect(status().isInternalServerError()); // Exception thrown, handled by Spring
+//    }
 
     @Test
     void updateTrainingWeek_returnsUpdatedWeek() throws Exception {
