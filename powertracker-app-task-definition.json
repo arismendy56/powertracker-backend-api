@@ -85,6 +85,5 @@
   },
   "registeredAt": "2025-08-11T15:30:34.950Z",
   "registeredBy": "arn:aws:iam::964602146312:user/lambdauser",
-  "enableFaultInjection": false,
   "tags": []
 }
