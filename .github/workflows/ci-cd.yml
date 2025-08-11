@@ -57,5 +57,5 @@ jobs:
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: powertracker-app-service
-          cluster: DevCluster2
+          cluster: powertracker-backend
           wait-for-service-stability: true
