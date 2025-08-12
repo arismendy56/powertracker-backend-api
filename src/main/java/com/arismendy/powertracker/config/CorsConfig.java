@@ -14,7 +14,8 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")  // Allow CORS for all endpoints
-                        .allowedOrigins("http://localhost:3000")  // Your React dev URL
+                        .allowedOrigins("http://localhost:3000",
+                                        "http://powertrackerapp.s3-website-us-east-1.amazonaws.com")  // Your React dev URL
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
