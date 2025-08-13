@@ -26,11 +26,20 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: [aws-ec2]
+    runs-on: [ aws-ec2 ]  # this ensures it runs on your EC2 runner
     steps:
-      - name: Pull Image from docker hub
+      - name: Pull latest Docker image
         run: docker pull arismendy5/powertrackerapi:latest
-      - name: Delete old container
-        run: docker rm -f powertracker-container
-      - name: Run docker container
-        run: docker run -d -p 8080:8080 --name powertracker-container arismendy5/powertrackerapi
+
+      - name: Stop & remove old container if exists
+        run: docker rm -f powertracker-container || true
+
+      - name: Run new container with env vars
+        run: |
+          docker run -d -p 8080:8080 \
+            --name powertracker-container \
+            -e SPRING_DATASOURCE_URL=${{ secrets.DB_URL }} \
+            -e SPRING_DATASOURCE_USERNAME=${{ secrets.DB_USERNAME }} \
+            -e SPRING_DATASOURCE_PASSWORD=${{ secrets.DB_PASSWORD }} \
+            -e SERVER_ADDRESS=0.0.0.0 \
+            arismendy5/powertrackerapi:latest
